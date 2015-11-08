@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Stargraph</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/stargraph.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.canvasjs.min.js"></script>
+    <script type="text/javascript" src="js/stargraph.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">Stargraph</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="navbar-form token navbar-right">
+                    <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=c5a17ac5117e14bdebd9" class="btn btn-block btn-social btn-github">
+                        <span class="fa fa-github"></span> Sign in with Github
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron text-centered">
+        <div class="container">
+            <h1>Stargraph Project</h1>
+            <p>This is a demo for use of the Stargraph library written in <a href="https://golang.org">Go</a>.</p>
+            <a href="https://github.com/evermax/stargraph" class="btn btn-outline btn-lg"><span class="fa fa-github"></span> View on GitHub</a>
+        </div>
+    </div>
+    <div class="container" id="about">
+        <h2>About</h2>
+        <p>This project allows you to get the stars from a <strong>Github repository</strong> and plot a graph out of it.</p>
+        <p class="pbg bg-warning">Important!
+            The project only get the <strong>current</strong> stars and place them on the graph depending on its <strong>timestamp</strong>.
+            It does <strong>not</strong> take into account the stars that were removed.
+            That is why the graph is always growing or constant but not going down.</p>
+        <p>You can try it by either providing a Github API token or use the button at the top to sign up with Github.</p>
+        <br>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form id="form" class="form-inline">
+                    <div class="form-group">
+                        <label for="repo">Github repository</label>
+                        <input type="text" class="form-control" id="repo" placeholder="evermax/stargraph">
+                    </div>
+                    <div class="form-group token">
+                        <label for="token">Github API token</label>
+                        <input type="text" class="form-control" id="token" placeholder="token">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div><br>
+    <div id="loader" class="container text-centered">
+        <button class="btn btn-lg btn-warning">
+            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...
+        </button>
+    </div>
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-2"></div>
+            <div id="chartContainer" class="col-md-8" style="height: 300px;">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h2>To do</h2>
+            <ul>
+                <li>Write godoc for it</li>
+                <li>Find a better graph plot in Go that can display the time on an axis.</li>
+                <li>Make this a service that serves images for repo that can be put in the README of your github repository</li>
+            </ul>
+        </div>
+    </div><br>
+    <div id="contact" class="container">
+        <h2>Contact and contributions</h2>
+        <p>Contributions to that project are more than welcome, especially... for everything!
+        You are welcome to talk to me about it on <a href="https://gophers.slack.com/messages/@maxime/">Golang slack</a>.
+        (If there is a need for it, I might make a channel) <a href="http://bit.ly/go-slack-signup">Request an invite</a> if you are not already on the channel.</p>
+        <!--<p>Otherwise, you can always shoot me an email at: maxime at stargraph dot co.</p><br><br>-->
+    </div>
+    <footer class="text-centered">
+        <p>This website is powered by <a href="https://caddyserver.com">Caddy server</a>, an awesome http server written in go with a lot of features.</p>
+        <p>You probably noticed, but this website uses
+            <a href="http://getbootstrap.com">Bootstrap</a>,
+            along with <a href="http://fortawesome.github.io/Font-Awesome/">Font awesome</a>
+            and <a href="http://lipis.github.io/bootstrap-social/">Bootstrap social</a>.</p>
+    </footer>
+</body>
+</html>

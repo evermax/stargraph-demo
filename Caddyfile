@@ -1,0 +1,6 @@
+http://localhost:8080
+
+root public/
+
+proxy /api localhost:12345
+proxy /callback localhost:12345
