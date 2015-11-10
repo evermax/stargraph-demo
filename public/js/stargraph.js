@@ -5,7 +5,7 @@ function callback(data) {
         zoomEnabled: true,
 
         title:{
-        text: "Repo stars at " + date.getHours() + ":" + date.getMinutes() + " on " + date.toDateString()
+        text: "Repo with " + data.length + " stars at " + date.getHours() + ":" + date.getMinutes() + " on " + date.toDateString()
     },
     data: [
         {
@@ -48,6 +48,10 @@ $(document).ready(function() {
             var obj = JSON.parse(data);
             //console.log(obj);
             callback(obj);
+            if (obj.length !== 0) {
+                var lastTimestamp = obj.pop().x;
+                $("#legend").html("Last star on the repository put at: " + new Date(lastTimestamp).toDateString());
+            }
             $("#loader").hide();
             });
     });
