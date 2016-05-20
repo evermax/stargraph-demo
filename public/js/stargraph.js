@@ -6,7 +6,7 @@ function callback(response) {
         zoomEnabled: true,
 
         title:{
-        text: "Repo with " + response.data.length + " stars created at " + new Date(response.created_at).toDateString()
+        text: "Repo with " + response.data.length + " stars created on " + new Date(response.created_at).toDateString()
     },
     data: [
         {
