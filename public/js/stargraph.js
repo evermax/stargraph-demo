@@ -30,7 +30,6 @@ function getCookie(cname) {
     return "";
 }
 $(document).ready(function() {
-    $("#loader").hide();
     var token = getCookie("token");
     if (token !== "") {
         $(".token").hide();
@@ -49,10 +48,12 @@ $(document).ready(function() {
             var obj = JSON.parse(data);
             //console.log(obj);
             callback(obj);
-            if (obj.length !== 0) {
-                var lastTimestamp = obj.pop().x;
+            if (obj.data.length !== 0) {
+                var lastTimestamp = obj.data.pop().x;
                 $("#legend").html("Last star on the repository put at: " + new Date(lastTimestamp).toDateString());
             }
-            });
+            $("#loader").hide();
+            }
+        );
     });
 });
