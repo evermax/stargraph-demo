@@ -1,5 +1,6 @@
 function callback(response) {
     var date = new Date();
+    $("#loader").hide();
     var chart = new CanvasJS.Chart("chartContainer",
     {
         zoomEnabled: true,
@@ -52,7 +53,6 @@ $(document).ready(function() {
                 var lastTimestamp = obj.pop().x;
                 $("#legend").html("Last star on the repository put at: " + new Date(lastTimestamp).toDateString());
             }
-            $("#loader").hide();
             });
     });
 });
