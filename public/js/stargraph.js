@@ -5,7 +5,7 @@ function callback(response) {
         zoomEnabled: true,
 
         title:{
-        text: "Repo with " + response.data.length + " stars at " + date.getHours() + ":" + date.getMinutes() + " on " + date.toDateString()
+        text: "Repo with " + response.data.length + " stars with the last star at " + response.
     },
     data: [
         {
