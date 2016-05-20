@@ -5,7 +5,7 @@ function callback(response) {
         zoomEnabled: true,
 
         title:{
-        text: "Repo with " + response.data.length + " stars with the last star at " + response.
+        text: "Repo with " + response.data.length + " stars created at " + response.created_at
     },
     data: [
         {
@@ -34,7 +34,7 @@ $(document).ready(function() {
     if (token !== "") {
         $(".token").hide();
     }
-    callback([]);
+    callback({data:[], created_at: new Date().toISOString()});
     $("#form").submit(function(e) {
         e.preventDefault();
         var repo = $("#repo").val();
