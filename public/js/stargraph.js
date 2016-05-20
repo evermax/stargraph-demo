@@ -1,17 +1,17 @@
-function callback(data) {
+function callback(response) {
     var date = new Date();
     var chart = new CanvasJS.Chart("chartContainer",
     {
         zoomEnabled: true,
 
         title:{
-        text: "Repo with " + data.length + " stars at " + date.getHours() + ":" + date.getMinutes() + " on " + date.toDateString()
+        text: "Repo with " + response.data.length + " stars at " + date.getHours() + ":" + date.getMinutes() + " on " + date.toDateString()
     },
     data: [
         {
             type: "area",
             xValueType: "dateTime",
-            dataPoints: data
+            dataPoints: response.data
         }
     ]
     });
